@@ -7,7 +7,7 @@ import re
 
 msg = ''
 
-# Code (mostyl) from FideliusFalcon
+# Code (mostly) from FideliusFalcon
 # Simple text scrolling for max7219 display
 # https://github.com/FideliusFalcon/rpi_pico_max7219/blob/main/main.py
 class matrix():
