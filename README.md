@@ -3,7 +3,7 @@
 ##### Build guide: https://youtu.be/ <br/>
 ##### My YouTube channel: https://www.youtube.com/channel/UCn5eZ8l-LLnRv9ov-WQtwqA
 
-![mintyPico Showcase](./images/thumbnail.jpg)
+![project showcase](./images/thumbnail.jpg)
 
 ### **INFO:**<br/>
 All you have to do is plug the project in and send GET requests to it using the format in send_req.py <br/>
@@ -14,4 +14,4 @@ Max7219 Driver: https://github.com/mcauser/micropython-max7219 (Mike Causer) <br
 Pico integration of Max7219 driver: https://github.com/FideliusFalcon/rpi_pico_max7219/blob/main/main.py (FideliusFalcon) <br/>
 Webserver setup: https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/ (Alasdair Allan) <br/>
 
-![Breadboard Prototype](./images/internals.jpg)
+![project internals](./images/internals.jpg)
