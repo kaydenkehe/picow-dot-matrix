@@ -47,8 +47,8 @@ led.alert()
 # Create webserver
 # https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
 
-ssid = 'upsidedown'
-password = 'bart2608'
+ssid = ''
+password = ''
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
