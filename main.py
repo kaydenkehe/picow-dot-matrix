@@ -47,6 +47,7 @@ led.alert()
 # Create webserver
 # https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
 
+# Your WiFi name and password
 ssid = ''
 password = ''
 
