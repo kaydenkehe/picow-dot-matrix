@@ -1,6 +1,6 @@
 # **Pico W Dot Matrix**
 ##### This repo contains the code and files necessary to build the Pico W Dot Matrix project <br/>
-##### Build guide: https://youtu.be/ <br/>
+##### Build guide: https://youtu.be/IHQN9MTDZPw <br/>
 ##### My YouTube channel: https://www.youtube.com/channel/UCn5eZ8l-LLnRv9ov-WQtwqA
 
 ![project showcase](./images/main.png)
