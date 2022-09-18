@@ -7,7 +7,7 @@ import re
 
 msg = ''
 
-# Code (mostly) from FideliusFalcon
+# Credit to FideliusFalcon for text-scrolling
 # Simple text scrolling for max7219 display
 # https://github.com/FideliusFalcon/rpi_pico_max7219/blob/main/main.py
 class matrix():
@@ -43,7 +43,7 @@ class matrix():
 led = matrix()
 led.alert()
 
-# Code (mostly) from RPi News
+# Code adapted from RPi News article
 # Create webserver
 # https://www.raspberrypi.com/news/how-to-run-a-webserver-on-raspberry-pi-pico-w/
 
@@ -53,14 +53,13 @@ password = ''
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect('hawkins lab', 'bart2608')
+wlan.connect(ssid, password)
 
 max_wait = 10
 while max_wait > 0:
     if wlan.status() < 0 or wlan.status() >= 3:
         break
     max_wait -= 1
-    print('waiting for connection...')
     sleep(1)
 
 if wlan.status() != 3:
@@ -68,9 +67,7 @@ if wlan.status() != 3:
     raise RuntimeError('network connection failed')
 else:
     led.text_scroll('CONN SUCCESS')
-    print('connected')
     status = wlan.ifconfig()
-    print( 'ip = ' + status[0] )
 
 addr = socket.getaddrinfo('0.0.0.0', 8777)[0][-1]
 
@@ -78,17 +75,13 @@ s = socket.socket()
 s.bind(addr)
 s.listen(1)
 
-print('listening on', addr)
-
 # Listen for connections
 while True:
     try:
         cl, addr = s.accept()
-        print('client connected from', addr)
         request = cl.recv(4096)
        
-        print(request.decode())
-        # Certain characters like '<' and '>' will still be represented by their url encoded counterparts ('%3c' and '%3e' in this case)
+        # Certain characters like '<' and '>' will still be represented by their url encoded counterparts ('%3c' and '%3e' in those cases)
         # The only character I account for here is space
         msg = re.search("\/\?message='.+'", request.decode()).group(0).replace("/?message='", '').replace('%20', ' ')[:-1]
         cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
@@ -99,5 +92,4 @@ while True:
         led.text_scroll(msg) # Char lim 34 (spaces count as three)
 
     except Exception as e:
-        print(e)
         cl.close()
